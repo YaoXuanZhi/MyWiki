@@ -28,6 +28,8 @@
             - [TaskScheduler](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/03-TaskScheduler "TaskScheduler")
             - [Registry](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/04-Registry "Registry")
             - [Socket](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/05-Socket "Socket")
+         - **计算机图形学**
+            - [位图转换为矢量图](?file=002-开发爪印/03-外功修炼/02-SDK学习/02-计算机图形学/01-位图转换为矢量图 "位图转换为矢量图")
       - **第三方类库**
          - **文本解析库**
             - **XML解析库**
@@ -96,3 +98,5 @@
       - **零散工具**
          - **3ds MAX**
          - **CAD**
+         - **Git**
+            - [使用技巧集合](?file=004-零碎记忆/02-工具学习/04-零散工具/03-Git/01-使用技巧集合 "使用技巧集合")
