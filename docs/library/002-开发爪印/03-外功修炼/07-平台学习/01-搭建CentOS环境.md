@@ -1,29 +1,35 @@
 ## 搭建CentOS环境
 
-### <1>下载相关资源
+### 1.下载相关资源
 
-#### CentOS镜像资源下载
+##### CentOS镜像资源下载
 首推[阿里云开源站](http://mirrors.aliyun.com/centos/6.8/isos/x86_64/)，本人采用的是CentOS 6.8版本，是在[CentOS 6.8 正式版下载](http://www.centoscn.com/CentosSoft/iso/2016/0530/7314.html)下找到下载链接的
 
-#### VMWare安装包下载
+##### VMWare安装包下载
 推荐下载VMware 12.0版本，原因很简单，安装包体积才200M，而且可以正常安装CentOS镜像，已经够用啦。
 
-### <2>在VMware下安装CentOS
+---
 
-#### 先安装VMware，然后输入相关序列号即可，网上教程众多
-本人采用的是`CentOS-6.8-x86_64-minimal.iso`，无它，体积小，毕竟主要用于熟悉Linux下的开发流程
+### 2.在VMware下安装CentOS
+可以通过VMware的
 
-#### 先安装VMware，然后输入相关序列号即可，网上教程众多
+##### 先安装VMware，然后输入相关序列号即可，网上教程众多
 这里面就提供一些截图吧
 
-#### 在VMware下加载CentOS镜像
+##### 在VMware下加载CentOS镜像
+本人采用的是`CentOS-6.8-x86_64-minimal.iso`，无它，体积小，毕竟主要是用来熟悉Linux下的服务端的开发流程
 
+---
 
-### <3>配置CentOS环境
+### 3.配置CentOS环境
 
+---
 
 ### FAQ：
 ##### 如何才能够知道当前Linux镜像对应的Linux版本呢？
+按照下图来判断，然后选择对应的客户机操作系统版本就不会出错了
+
+![](assets/002/03/07/01-1499365441000.png)
 
 ##### VMware提示：已将该虚拟机配置为使用 64 位客户机操作系统。但是，无法执行 64 位操作
 在Windows x64下，极有可能碰到`VMware提示：已将该虚拟机配置为使用 64 位客户机操作系统。但是，无法执行 64 位操作`，已经有网友很好地总结了这个问题了，具体链接在这。[VMware提示：已将该虚拟机配置为使用 64 位客户机操作系统。但是，无法执行 64 位操作。解决方案](http://blog.csdn.net/jdbc/article/details/51301700)。
