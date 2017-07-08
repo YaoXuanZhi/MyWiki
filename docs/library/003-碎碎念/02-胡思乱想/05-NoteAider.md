@@ -16,6 +16,10 @@ NoteAider是一个笔记辅助类工具，主要用来辅助开发人员或者�
  - Duilib
 
 ##### 功能开发 
- - [屏幕绘制] Gdi、Gdi+、Skia之类
+ - [屏幕绘制] Gdi、Gdi+、Skia等等
  - [屏幕录制] gif --> liecap项目    mp4项目 --> mp4项目
- - [录制音频] aac、mp3
+ - [音频录制] aac、mp3
+
+##### 单元测试
+ - [O]googletest
+ - [X]cppunit
