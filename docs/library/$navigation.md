@@ -91,6 +91,7 @@
         - **AE Plug-ins**
         - **C4D Plug-ins**
         - **Html extension(Adobe)**
+            - [入门笔记](?file=002-开发爪印/03-外功修炼/06-插件或拓展开发/05-Html extension(Adobe)/01-入门笔记 "入门笔记")
     - **平台学习**
         - [搭建CentOS环境](?file=002-开发爪印/03-外功修炼/07-平台学习/01-搭建CentOS环境 "搭建CentOS环境")
 
