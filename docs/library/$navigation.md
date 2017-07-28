@@ -136,5 +136,6 @@
         - [Typora](?file=004-零碎记忆/02-工具学习/04-零散工具/04-Typora "Typora")
         - **SourceInsight**
             - [使用技巧集合](?file=004-零碎记忆/02-工具学习/04-零散工具/05-SourceInsight/01-使用技巧集合 "使用技巧集合")
+        - [Vim](?file=004-零碎记忆/02-工具学习/04-零散工具/06-Vim "Vim")
 - **把玩项目**
     - [Paints Chainer](?file=004-零碎记忆/03-把玩项目/01-Paints Chainer "Paints Chainer")
