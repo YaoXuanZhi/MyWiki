@@ -103,6 +103,7 @@
     - [轻量视频播放器](?file=003-碎碎念/02-胡思乱想/03-轻量视频播放器 "轻量视频播放器")
     - [AutoNMaker](?file=003-碎碎念/02-胡思乱想/04-AutoNMaker "AutoNMaker")
     - [NoteAider](?file=003-碎碎念/02-胡思乱想/05-NoteAider "NoteAider")
+    - [ContactSniffer](?file=003-碎碎念/02-胡思乱想/06-ContactSniffer "ContactSniffer")
 
 ##### 零碎记忆
 - [零碎记忆](?file=004-零碎记忆/01-零碎记忆 "零碎记忆")
