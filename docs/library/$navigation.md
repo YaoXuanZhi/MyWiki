@@ -31,6 +31,7 @@
         - **Lua**
             - [Lua学习笔记](?file=002-开发爪印/03-外功修炼/01-编程语言学习/03-Lua/001-Lua学习笔记 "Lua学习笔记")
         - **Python**
+            - [Python的开发环境的搭建](?file=002-开发爪印/03-外功修炼/01-编程语言学习/04-Python/01-Python的开发环境的搭建 "Python的开发环境的搭建")
         - **Adobe ExtendScript**
     - **SDK学习**
         - **Windows SDK**
