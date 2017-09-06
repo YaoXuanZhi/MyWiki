@@ -56,3 +56,5 @@
 目前可以选取的方案是使用wxPython，具体教程请访问[官方网站](http://www.wxpython.org)，官网里面已经提供了丰富的样例工程，下面演示了如下打包这个GUI工程成exe的过程。
 
 ![](assets/002/7.安装wxPython并使用.gif)
+
+附件：[pyProject.rar](assets/002/pyProject.rar)
