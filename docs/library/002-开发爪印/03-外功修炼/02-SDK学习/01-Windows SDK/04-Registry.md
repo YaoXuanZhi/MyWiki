@@ -15,3 +15,5 @@ Microsoft团队为开发者提供了多种可以操作注册表的方式，大�
 
 ### 官方资源推荐
 想看官方的在线连接，[<a href="http://msdn.microsoft.com/EN-US/library/ms724871(v=VS.85,d=hv.2).aspx" target="blank" >点我吧</a>]
+
+>附件下载：[RegEditor](assets/002/03/02/01/RegEditor.rar)
