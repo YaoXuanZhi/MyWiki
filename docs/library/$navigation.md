@@ -27,6 +27,8 @@
     - **编程语言学习**
         - **C++**
             - [C或C++语法兼容问题整理](?file=002-开发爪印/03-外功修炼/01-编程语言学习/01-C++/01-C或C++语法兼容问题整理 "C或C++语法兼容问题整理")
+            - [C或C++开发环境搭建](?file=002-开发爪印/03-外功修炼/01-编程语言学习/01-C++/02-C或C++开发环境搭建 "C或C++开发环境搭建")
+            - [STL常见问题集锦](?file=002-开发爪印/03-外功修炼/01-编程语言学习/01-C++/03-STL常见问题集锦 "STL常见问题集锦")
         - **JavaScript**
         - **Lua**
             - [Lua学习笔记](?file=002-开发爪印/03-外功修炼/01-编程语言学习/03-Lua/001-Lua学习笔记 "Lua学习笔记")
@@ -37,7 +39,10 @@
         - **Windows SDK**
             - [GUI](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/01-GUI "GUI")
             - [WMI](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/02-WMI "WMI")
-            - [TaskScheduler](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/03-TaskScheduler "TaskScheduler")
+            - **TaskScheduler**
+                - [Task Scheduler概要说明](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/03-TaskScheduler/01-Task Scheduler概要说明 "Task Scheduler概要说明")
+                - [Task Scheduler 1.0的相关操作](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/03-TaskScheduler/02-Task Scheduler 1.0的相关操作 "Task Scheduler 1.0的相关操作")
+                - [Task Scheduler 2.0的相关操作](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/03-TaskScheduler/03-Task Scheduler 2.0的相关操作 "Task Scheduler 2.0的相关操作")
             - [Registry](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/04-Registry "Registry")
             - [Socket](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/05-Socket "Socket")
         - **计算机图形学**
