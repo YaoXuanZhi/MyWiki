@@ -8,4 +8,10 @@ Pdf2Markdown是一个基于Python实现的文档类型转换的工具类型项�
  - 生成Markdown[markdown](https://github.com/Python-Markdown/markdown)
   - [Extensions API](https://pythonhosted.org/Markdown/extensions/api.html)
 
-
+开发过程:
+ - 先收集通过Pdfdoc将Markdown转换成的pdf文件，编写一个简单的词法解析器
+ - 然后尝试用词法解析器来解析网络上的单页Pdf，完善词法解析器
+ - 接着分析多页PDF的拆分，编写拆分代码 
+ - 分析多页PDF文件的可能存在的目录，根据目录信息生成一个文库文件夹
+ - 将PDF目录和多页PDF关联起来，另外修复PDF上面的超链接与其他页面的联系
+ - 重构代码（PS:多用设计模式、多拆分模块）
