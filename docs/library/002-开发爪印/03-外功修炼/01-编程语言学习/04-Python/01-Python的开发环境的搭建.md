@@ -44,7 +44,7 @@
 
 ![](assets/002/5.安装pyinstaller并使用.gif)  
 
-注意，被打包的Python的文件路径不能够包含非ASCII字符，否则将会打包出错
+注意，被打包的Python的文件路径不能够包含非ASCII字符，否则将会打包出错，注意，在VSCode调试.py文件时也需要这样做哦
 
 #### 【py2exe】
  - [安装]：在Python 3.x时，可以通过`pip install py2exe`来直接安装，但是对于Python 2.x而言，只能够通过[py2exe-0.6.9.win32-py2.7.exe](assets/002/py2exe-0.6.9.win32-py2.7.exe)来手动安装了
