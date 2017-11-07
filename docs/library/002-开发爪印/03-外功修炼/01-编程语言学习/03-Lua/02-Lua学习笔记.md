@@ -1,5 +1,5 @@
 ### 在*Lua*实现带默认参数的函数
-在*lua*之中，它没有提供像*C++*那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数*SetArgs(arg1...argn)*，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持*SetArgs(arg1 = 1,arg2 = 2, argn = n )*之类的语句，如下所示：
+在lua之中，它没有提供像C++那样的不同参数列表的同名函数是不同的机制，在它的内部里面，其实现了一种很朴素的做法，假设定义了一个有n个形参的函数`SetArgs(arg1...argn)`，那么假设开发者在实际调用此函数的时候，假设填充的参数的个数小于n，那么后面没有添加的参数的实参都默认被设为nil，此时通过or运算符来设定默认值即可；另外，也并不支持`SetArgs(arg1 = 1,arg2 = 2, argn = n )`之类的语句，如下所示：
 
 ```lua
 myTable = { a= 1, b=2, c=3, d=4 } 
@@ -30,7 +30,7 @@ print(temp.d)
 print("end")
 ```
 
-### 模拟*C++*的类的继承机制
+### 模拟C++的类的继承机制
 
 更多相关资料请看[Metatable In Lua 浅尝辄止](http://www.cnblogs.com/simonw/archive/2007/01/17/622032.html)
 
@@ -594,4 +594,16 @@ e = a - b
 for key2,value2 in ipairs(e) do
     print(value2)
 end
+```
+
+##### 常见错误
+ - 由于lua是弱类型语言，因此，许多时候，一个变量可能是float、int、string或者table等难以区分出来，因此，在某些特定场合里面，最好使用`type()`来捕获此变量的类型，然后使用类似`tonumber()`的函数，将某变量转换成特定的数据类型吧
+ - table类型变量都是穿引用过去的哦，在后端开发里面，一个大忌就是修改了存放到lua里面的配置表数据，毕竟不止一个玩家在读取这些配置内容
+ - 在lua之中，为了避免某些语句的错误影响到后面的语句执行，必然需要处理其抛出的异常，当然，最常见的处理莫过于打印错误时的堆栈信息了，比如需要分发机器人的数据刷新的事件，以便让排行榜及时刷新，那么就会有以下代码段了：
+ ```lua
+ function OnUpdateRobotMsg(robotId)
+    for _, func in ipairs(funcs) do
+        xpcall(function () return func(robotId) end, _lua_error_handle)
+    end
+ end
 ```
