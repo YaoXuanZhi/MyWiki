@@ -6,6 +6,8 @@ http://www.huangdc.com/421
 
 #### 常用的Vim命令：
  - 切换到常态：`Esc`或`Ctrl+O`
+ - 显示行号：`:set nu`
+ - 取消行号：`:set nonu`
  - 往下查找：`/word` 配合n或N来索引下一个匹配项
  - 往上查找：`?word` 配合n或N来索引下一个匹配项
  - 创建文件：`:new filename`
