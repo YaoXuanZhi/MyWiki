@@ -37,6 +37,9 @@
         - **Python**
             - [Python的开发环境的搭建](?file=002-开发爪印/03-外功修炼/01-编程语言学习/04-Python/01-Python的开发环境的搭建 "Python的开发环境的搭建")
         - **Adobe ExtendScript**
+        - **DSL**
+            - [DSL简介](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/01-DSL简介 "DSL简介")
+            - [SQL](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/02-SQL "SQL")
     - **SDK学习**
         - **Windows SDK**
             - [GUI](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/01-GUI "GUI")
