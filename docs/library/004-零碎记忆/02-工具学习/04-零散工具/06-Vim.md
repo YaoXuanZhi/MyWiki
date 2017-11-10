@@ -10,8 +10,7 @@ http://www.huangdc.com/421
  - 取消行号：`:set nonu`
  - 往下查找：`/word` 配合n或N来索引下一个匹配项
  - 往上查找：`?word` 配合n或N来索引下一个匹配项
- - 创建文件：`:new filename`
- - 打开文件：`:vim filepath`
+ - 创建文件：`:new filename` - 打开文件：`:vim filepath`
  - 保存文件并退出：`:wq!`
  - 不保存文件直接退出：`:q!`
  - 打开目录树：`:NERDTREE`
@@ -36,6 +35,7 @@ http://www.huangdc.com/421
    -  查看所有打开的tab：`:tabs`
    -  前一个：`:tabp`
    -  后一个：`:tabn`
+ - 设置Vim的快捷键，直接在_VIMRC上插入这些语句即可：`map <F10> <Esc>:!explorer %:p:h<CR>`
 
-#### 注意事项
- - 目前发现Vim下所有删除的方法都会将被删除的文本Copy到临时剪贴板上
+#### 关于Vim的插件开发
+ - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html )
