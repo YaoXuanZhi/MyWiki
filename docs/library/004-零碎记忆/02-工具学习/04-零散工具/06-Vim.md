@@ -39,3 +39,6 @@ http://www.huangdc.com/421
 
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html )
+
+#### 常见问题
+ - [解决Vim"UltiSnips requires py >= 2.7 or py3"](http://blog.csdn.net/demorngel/article/details/72353760)
