@@ -11,6 +11,7 @@ http://www.huangdc.com/421
  - 往下查找：`/word` 配合n或N来索引下一个匹配项
  - 往上查找：`?word` 配合n或N来索引下一个匹配项
  - 创建文件：`:new filename` - 打开文件：`:vim filepath`
+ - 重新加载文件`:e!`
  - 保存文件并退出：`:wq!`
  - 不保存文件直接退出：`:q!`
  - 打开目录树：`:NERDTREE`
