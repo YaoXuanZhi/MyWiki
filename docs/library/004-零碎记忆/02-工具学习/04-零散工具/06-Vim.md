@@ -37,7 +37,18 @@ http://www.huangdc.com/421
    -  前一个：`:tabp`
    -  后一个：`:tabn`
  - 设置Vim的快捷键，直接在_VIMRC上插入这些语句即可：`map <F10> <Esc>:!explorer %:p:h<CR>`
-
+ - 代码折叠
+   - 打开关闭折叠：`zi`
+   - 查看此行：`zv`
+   - 关闭折叠：`zm`
+   - 关闭所有：`zM`
+   - 打开：`zr`
+   - 打开所有：`zR`
+   - 折叠当前行：`zc`
+   - 打开当前折叠：`zo`
+   - 删除折叠`zd`
+   - 删除所有折叠`zD`
+ 
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html )
 
