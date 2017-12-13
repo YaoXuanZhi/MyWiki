@@ -502,7 +502,7 @@ print(IsMatchedID(10,10))
 print(IsMatchedID(18,10))
 ```
 
-###获取*Table*、字符串等类型的长度，不需要length()等函数来获取，直接用*#*即可
+### 获取*Table*、字符串等类型的长度，不需要length()等函数来获取，直接用*#*即可
 
 ```lua
 tempTable = {897,8,78,7,87,87,8,78,78,7,87,8,7}
@@ -511,7 +511,7 @@ tempString = "fadfadfadf"
 print(#tempString)
 ```
 
-###重载运算符*Lua*的运算符
+### 重载运算符*Lua*的运算符
 
 在*Lua*之中，我们可以通过*[Metatable（元表）](undefined)*来重载非数值运算符，能够重载的运算符如下所示：
 
@@ -595,6 +595,55 @@ for key2,value2 in ipairs(e) do
     print(value2)
 end
 ```
+
+### 关于module和setfenv的使用规范
+>在lua之中，文件之中用到了module和setfenv需要打醒十二分精神了，这两个关键字会引入一些全局变量，在实际项目的开发过程之中，函数体内定义了同名变量时，最好将其local化，这样做的主要原因不单单是为了提交执行效率，还是为了避免模块的元表结构被人为破坏：
+
+##### 举个栗子，开发者维护一个robot模块，其中文件分布如下所示：
+
+```lua
+-- _requires.lua
+-- 位于system/robot目录下，主模块直接加载此模块require("robot._requires")
+require("robot.robotmgr")
+```
+
+```lua
+-- robotmgr.lua
+-- 位于system/robot目录下
+module("robot.robotmgr", package.seeall)
+
+local conf = {
+  {
+    robId = 10,
+    sex = 1,
+    fightValue = 1343, 
+  },
+  {
+    robId = 10,
+    sex = 1,
+    fightValue = 1343, 
+  }
+}
+
+local robotList = {}
+
+-- 创建机器人
+local function CreateRobots(robotConf)
+  for _,v in pairs(robotConf) do
+    robot = LSystem.CreateRobot(v.robId, v.sex, v.fightValue)
+    table.insert(robList, robot)
+  end
+end
+
+-- 销毁机器人
+local function DestoryRobots(robList)
+  for _,v in pairs(robList) do
+    LSystem.DestoryRobot(v)
+  end
+end
+```
+
+在上述代码之中，其实就存在一个可能引起服务器宕机的致命bug，在这个模块定义之中，robot变量其实已经在`module("robot.robotmgr", package.seeall)`之中定义了的，指向的是`system/robot`下的所有成功加载的lua文件，而`robot.robotmgr`指向的是`robotmgr.lua`自身，相当于`_M`，因此`CreateRobots()`函数里面定义的非全局的`robot`变量其实就是system.robot，由于其被重新赋值，因此会破坏system.robot原本的元表结构，严重的话引起程序崩溃，在此只需改为`local robot = LSystem.CreateRobot(v.robId, v.sex, v.fightValue)`即可解决此隐患。另外，在`setfenv(1, robot.robotmgr)`也有类似的注意事项。
 
 ##### 常见错误
  - 由于lua是弱类型语言，因此，许多时候，一个变量可能是float、int、string或者table等难以区分出来，因此，在某些特定场合里面，最好使用`type()`来捕获此变量的类型，然后使用类似`tonumber()`的函数，将某变量转换成特定的数据类型吧，另外，在number类型的数值比较之中，需要留神待比较的变量是否可能为float类型，通常在这些场合里，使用`math.ceil()`来取整后再作比较
