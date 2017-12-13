@@ -47,7 +47,7 @@
 注意，被打包的Python的文件路径不能够包含非ASCII字符，否则将会打包出错，注意，在VSCode调试.py文件时也需要这样做哦
 
 #### 【py2exe】
- - [安装]：在Python 3.x时，可以通过`pip install py2exe`来直接安装，但是对于Python 2.x而言，只能够通过[py2exe-0.6.9.win32-py2.7.exe](assets/002/py2exe-0.6.9.win32-py2.7.exe)来手动安装了
+ - [安装]：在Python 3.x时，可以通过`pip install py2exe`来直接安装，但是对于Python 2.x而言，只能够通过[py2exe-0.6.9.win32-py2.7.exe](assets/002/py2exe-0.6.9.win32-py2.7.7z)来手动安装了
  - [使用]：需要先定义一个[setup.py](assets/002/setup.py)文件，在此文件内，设定打包的行为，然后执行`python setup.py py2exe`命令来打包
 
 ![](assets/002/6.安装py2exe并使用.gif)
