@@ -8,3 +8,6 @@
  - [clidebugger](https://github.com/ToddWegner/clidebugger)
  - [lua层面上的ldb调试器](https://github.com/tjsymbol/ldb)
  - [c层面上的ldb调试器](https://github.com/lichuang/ldb.git)
+
+>本人fork了log4z项目，并在此添加了一个fflua_test 工程，这个工程就是演示了C++与Lua的混合开发，并且集成了clidebugger lua调试库，详情请移步:[log4z](https://github.com/YaoXuanZhi/log4z)，如下图所示：
+![log4z](https://user-images.githubusercontent.com/14124918/34468617-b94d1974-ef47-11e7-809a-5712623a6064.png)
