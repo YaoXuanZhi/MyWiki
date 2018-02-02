@@ -48,6 +48,8 @@ http://www.huangdc.com/421
    - 打开当前折叠：`zo`
    - 删除折叠`zd`
    - 删除所有折叠`zD`
+ - 命令集
+   - 替换文本所有字符串：`:%s/oldstr/newstr/g`
  
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html )
