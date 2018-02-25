@@ -102,6 +102,7 @@
     - [Pdf2Markdown](?file=003-碎碎念/02-胡思乱想/07-Pdf2Markdown "Pdf2Markdown")
     - [ProtoEditor](?file=003-碎碎念/02-胡思乱想/08-ProtoEditor "ProtoEditor")
     - [amWikiForVim](?file=003-碎碎念/02-胡思乱想/09-amWikiForVim "amWikiForVim")
+    - [WorkFlowMgr](?file=003-碎碎念/02-胡思乱想/10-WorkFlowMgr "WorkFlowMgr")
 - [版本发布的二三事](?file=003-碎碎念/03-版本发布的二三事 "版本发布的二三事")
 - [版本管理的二三事](?file=003-碎碎念/04-版本管理的二三事 "版本管理的二三事")
 
