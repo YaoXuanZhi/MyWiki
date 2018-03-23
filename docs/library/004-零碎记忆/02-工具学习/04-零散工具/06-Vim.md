@@ -56,3 +56,6 @@ http://www.huangdc.com/421
 
 #### 常见问题
  - [解决Vim"UltiSnips requires py >= 2.7 or py3"](http://blog.csdn.net/demorngel/article/details/72353760)
+
+ - 解决粘贴到终端 Vim 缩进错乱
+  >需要设置终端Vim的粘贴模式为粘贴保留格式：set paste
