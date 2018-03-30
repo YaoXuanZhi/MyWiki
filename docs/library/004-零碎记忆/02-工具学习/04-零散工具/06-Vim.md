@@ -14,7 +14,6 @@ http://www.huangdc.com/421
  - 重新加载文件`:e!`
  - 保存文件并退出：`:wq!`
  - 不保存文件直接退出：`:q!`
- - 打开目录树：`:NERDTREE`
  - 打开函数列表：`tb`
  - 切换窗口：`Ctrl+W` [j k l n]
  - 在文件夹文件夹下查找文库本：`:Ag word`
@@ -23,6 +22,7 @@ http://www.huangdc.com/421
  - 设置搜索时忽略字母的大小写差异：`:set ic`
  - 设置搜索使用字母的大小写匹配；`:set noic`
  - 搜索当前文件夹的文件：`;p`(常态下)
+ - 回到刚才编辑的文件：`:e#`(常态下)
  - 进入块模式编辑：`Ctrl+v`
   - 在块的前面插入字符：`Shift+i`
   - 在块的后面插入字符：`Shift+a`
@@ -31,11 +31,11 @@ http://www.huangdc.com/421
    - 取消光标所在行的注释：`;cu`
    - 切换光标所在行的注释/非注释状态；`;c<space>`
  - 切换tab
-   -  关闭当前的tab：`:tabc`
-   -  关闭所有其他的tab：`:tabo`
-   -  查看所有打开的tab：`:tabs`
-   -  前一个：`:tabp`
-   -  后一个：`:tabn`
+   - 关闭当前的tab：`:tabc`
+   - 关闭所有其他的tab：`:tabo`
+   - 查看所有打开的tab：`:tabs`
+   - 前一个：`:tabp`
+   - 后一个：`:tabn`
  - 设置Vim的快捷键，直接在_VIMRC上插入这些语句即可：`map <F10> <Esc>:!explorer %:p:h<CR>`
  - 代码折叠
    - 打开关闭折叠：`zi`
@@ -46,10 +46,26 @@ http://www.huangdc.com/421
    - 打开所有：`zR`
    - 折叠当前行：`zc`
    - 打开当前折叠：`zo`
-   - 删除折叠`zd`
-   - 删除所有折叠`zD`
+   - 删除折叠：`zd`
+   - 删除所有折叠：`zD`
  - 命令集
    - 替换文本所有字符串：`:%s/oldstr/newstr/g`
+ - 分割窗口调整
+   - 纵向调整
+     - 纵向扩大(行数增加)：`:ctrl+w +`
+     - 纵向缩小(行数减少)：`:ctrl+w -` 
+     - 显示行数调整为num行：`:res(ize) num`
+     - 把当前窗口高度增加num行：`:res(ize)+num` 
+     - 把当前窗口高度减少num行：`:res(ize)-num` 
+   - 横向调整
+     - 指定当前窗口为num列：`:vertical res(ize) num`
+     - 把当前窗口增加num列：`:vertical res(ize)+num` 
+     - 把当前窗口减少num列：`:vertical res(ize)-num` 
+   - 文件浏览
+     - 在侧边打开目录树：`:NERDTREE`
+     - 打开目录浏览器：`:Ex`
+     - 水平分割当前窗口，并打开一个窗口开启目录浏览器发：`:Sex`
+
  
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html)
