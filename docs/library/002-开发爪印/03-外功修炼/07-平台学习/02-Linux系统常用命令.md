@@ -13,6 +13,10 @@
 
 #### 查看文件
  - 查看指定文件后面追加的内容：`tail -f filename`
+ - 查看新增的报错日志：`tail -f filename | grep -n "ERR"`
+ - 搜索N次匹配的日志：`grep -m 1 'ERROR' filename`
+ - 多字段搜索日志：`grep -E 'WARN|ERR' filename > err.log`
+ - 按照时间范围搜索日志：`awk '$2>"17:30:00" && $2<"18:00:00"' filename`
 
 #### 查看当前目录的文件
  - 查看当前目录的文件简介：`ls`
