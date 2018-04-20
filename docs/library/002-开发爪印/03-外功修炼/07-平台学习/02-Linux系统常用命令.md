@@ -16,7 +16,9 @@
  - 查看新增的报错日志：`tail -f filename | grep -n "ERR"`
  - 搜索N次匹配的日志：`grep -m 1 'ERROR' filename`
  - 多字段搜索日志：`grep -E 'WARN|ERR' filename > err.log`
+ - 采用正则来筛选日志：`grep "xxx1*.*xxx2" filename`
  - 按照时间范围搜索日志：`awk '$2>"17:30:00" && $2<"18:00:00"' filename`
+ - 组合筛选并查看：`grep -n "ERR" | less -R`
 
 #### 查看当前目录的文件
  - 查看当前目录的文件简介：`ls`
