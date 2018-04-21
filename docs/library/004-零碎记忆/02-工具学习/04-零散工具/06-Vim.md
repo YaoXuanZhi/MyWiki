@@ -75,3 +75,78 @@ http://www.huangdc.com/421
 
  - 解决粘贴到终端 Vim 缩进错乱
   >需要设置终端Vim的粘贴模式为粘贴保留格式：set paste
+
+#### Chrome浏览器下的Vim模式
+>在Chrome浏览器的应用商店里安装**Vimium**插件即可，以下罗列一些常用的快捷键操作：
+
+ - 标签页间操作
+   - 跳到左侧标签页(Vimium)：`J(Shift+h)`
+   - 跳到右侧标签页(Vimium)：`K(Shift+j)`
+   - 跳到最左端标签页(Vimium)：`g0`
+   - 跳到最右端标签页(Vimium)：`g$`
+   - 查找已打开的标签页：`T(Shift+t)`
+   - 关闭标签页(Vimium)：`x`
+   - 跳到左侧标签页(内置)：`Ctrl+Shift+Tab`
+   - 跳到右侧标签页(内置)：`Ctrl+Tab`
+   - 关闭标签页(内置)：`Ctrl+w`
+
+ - 页内移动
+   - 往下移动：`j`
+   - 往上移动：`k`
+   - 往左移动：`h`
+   - 往右移动：`h`
+   - 移动到顶端：`gg`
+   - 移动到底端：`G(Shift+g)`
+
+ - 页内操作
+   - 选择文本：`v`
+   - 输入文本：`i`
+   - 复制被选中文本：`y`
+   - 找到当前页面的首个文本框输入：`gi`
+   - 复制当前标签页链接：`yy`
+   - 在本标签页内打开剪贴板上的链接：`p`
+   - 新开标签页来打开剪贴板上的链接：`P(Shift+p)`
+   - 打开可挑选的跳转面板：`f`
+   - 在本标签页内往前跳转：`H(Shift+h)`
+   - 在本标签页内往后跳转：`L(Shift+l)`
+   - 在本标签页内刷新(Vimium)：`r`
+   - 在本标签页内刷新(内置)：`F5`
+
+ - 页内查找
+   - 查找文本(Vimium)：`/`
+   - 往下查找匹配项(Vimium)：`n`
+   - 往上查找匹配项(Vimium)：`N(Shift+n)`
+   - 查找文本(内置)：`Ctrl+F`
+
+ - 书签/历史
+   - 在本标签页来打开书签/历史的链接：`o`
+   - 新开标签页来打开书签/历史的链接：`O(Shift+o)`
+   - 在本标签页来打开书签的链接：`b`
+   - 新开标签页来打开书签的链接：`B(Shift+b)`
+
+#### Linux下安装Vim及其插件
+```sh
+# 安装Vundle插件
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+```
+
+```sh
+# 安装配色方案
+mkdir ~/.vim/colors
+wget -O ~/.vim/colors/monokai.vim https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+```
+
+#### 编译Ycm的支持(Linux)
+```sh
+# 建议直接安装CentOS 7.x以上，然后安装gcc+clang+llvm，这样gcc和clang就不需要升级了
+
+yum install automake gcc gcc-c++ kernel-devel cmake 
+yum install python-devel python3-devel
+
+# 定位到bundle/YouCompleteME的路径下，执行以下指令来编译ycm
+./install.sh --clang-completer
+
+# 将ycm的默认配置Copy到~/.vim/目录下
+cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/
+```
