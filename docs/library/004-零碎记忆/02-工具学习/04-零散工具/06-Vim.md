@@ -77,7 +77,7 @@ http://www.huangdc.com/421
   >需要设置终端Vim的粘贴模式为粘贴保留格式：set paste
 
 #### Chrome浏览器下的Vim模式
->在Chrome浏览器的应用商店里安装**Vimium**插件即可，以下罗列一些常用的快捷键操作：
+>在Chrome浏览器的应用商店里安装**Vimium**插件即可，不过，由于众所周知的原因，如果不自建梯子是访问不了的，此时可以到[Crx4Chrome](https://www.crx4chrome.com/crx)上下载并安装此插件。以下罗列一些常用的快捷键操作：
 
  - 标签页间操作
    - 跳到左侧标签页(Vimium)：`J(Shift+h)`
