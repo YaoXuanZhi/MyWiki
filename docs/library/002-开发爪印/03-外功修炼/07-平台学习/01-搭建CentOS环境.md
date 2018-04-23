@@ -6,6 +6,8 @@
 首推[阿里云开源站](http://mirrors.aliyun.com/centos/6.8/isos/x86_64/)，本人采用的是CentOS 6.8版本，是在[CentOS 6.8 正式版下载](http://www.centoscn.com/CentosSoft/iso/2016/0530/7314.html)下找到下载链接的
  - [CentOS-6.9-i386-minimal(x86bit)](https://mirrors.aliyun.com/centos/6/isos/i386/CentOS-6.9-i386-minimal.iso)
 
+>如果想在安装Vim+YouCompleteMe时省点事的花，建议安装CentOS7.x吧，这样通过ycm来安装的工具链就会比较新，否则就需要手动升级Gcc、Clang、Python等工具，贼麻烦了o((⊙﹏⊙))o
+
 ##### VMWare安装包下载
 推荐下载VMware 12.0版本，原因很简单，安装包体积才200M，而且可以正常安装CentOS镜像，已经够用啦。
 
@@ -23,6 +25,20 @@
 ---
 
 ### 3.配置CentOS环境
+安装完Linux系统后，下面自然就是网络配置了，具体可以参考[《CentOS基础版(minimal)如何设置网络(配置)》](https://jingyan.baidu.com/article/fea4511a37e365f7ba91256b.html)，这里面简述一下DHCP网络配置：
+ - 打开网络配置文件：`vi /etc/sysconfig/network-scripts/ifcfg-eth0`
+ - 将`ONBOOT=no`改成`ONBOOT=yes`
+ - 再在最后插入DHCP配置：
+   ```txt
+   IPADDR=192.168.244.125
+   GETAWAY=192.168.244.2
+   NETMASK=255.255.255.0
+   ```
+   >注意事项，GETAWAY(网关)和NETMASK(子网掩码)必须和虚拟机的配置是一样的哦，而IPADDR必须和虚拟机的子网Ip同网段，如下图所示：
+     >![](assets/002/03/07/01-1524453570000.png)
+ - 重启网络服务：`service network restart`
+ - 检查网络连接：`ifconfig` 或 `ping baidu.com`
+
 通常而言，大部分后端开发人员都是使用xShell通过ssh来连到CentOS终端，执行一些系统命令操作，大部分实际开发活动还是停留在Windows下面的，说句实在话，还是在Windows下查资料比较舒服一些，因此需要设置CentOS的主机Ip，方便终端管理器连接，设置的Linux命令类似 `ifconfig eth0 192.168.252.3`，然后xshell新建会话，填入这个 `192.168.252.3` 即可，端口号可以通过 `vi /etc/sysconfig/iptables` 来查看，如下图所示：
 
 ![](assets/002/03/07/01-1509764843000.png)
