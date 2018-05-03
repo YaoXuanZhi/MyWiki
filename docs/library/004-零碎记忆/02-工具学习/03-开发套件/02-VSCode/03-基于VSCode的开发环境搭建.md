@@ -36,3 +36,15 @@
   - `Ctrl+alt+h`：将会根据当前被选中的文本在Zeal/Dash的所有文档上查找
   - `Ctrl+shift+h`：打开Zeal/Dash界面，并开启当前源码类型对应的文档搜索
   - `alt+h`：将会根据当前源码类型以及用户输入的文本在Zeal/Dash的指定文档上查找
+
+##### 常用插件整理
+ - amWikiForVSCode: 本人编写的wiki文库辅助插件，移植[amWiki](https://github.com/TevinLi/amWiki)所得
+ - Better Comments: 对源码注释有着更好的高亮效果，通过`!、?、TODO`等关键字来高亮处理
+ - vscode-hexo: 一款管理hexo博客的插件，需要额外安装Node.js环境
+ - LaText Workshop: 辅助编辑、编译LaTeX文档的插件，需要额外安装CTex套装
+ - C/C++: 微软官方初品的C/C++开发辅助插件，非常牛逼
+ - Python: pyhon开发辅助插件，需要额外安装Python2.x/3.x环境
+ - Python: go开发辅助插件，需要额外安装Go环境，个人建议安装Go x64bit，否则Go的调试器会很难弄
+ - Lua Debug: lua开发的辅助插件，需要额外安装lua环境 
+ - Vim: 让VSCode支持Vim编辑模式的插件
+ - Bookmarks: 为VSCode提供书签功能
