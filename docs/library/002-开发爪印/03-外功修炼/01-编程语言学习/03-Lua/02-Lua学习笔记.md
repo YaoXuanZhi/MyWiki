@@ -645,6 +645,23 @@ end
 
 在上述代码之中，其实就存在一个可能引起服务器宕机的致命bug，在这个模块定义之中，robot变量其实已经在`module("robot.robotmgr", package.seeall)`之中定义了的，指向的是`system/robot`下的所有成功加载的lua文件，而`robot.robotmgr`指向的是`robotmgr.lua`自身，相当于`_M`，因此`CreateRobots()`函数里面定义的非全局的`robot`变量其实就是system.robot，由于其被重新赋值，因此会破坏system.robot原本的元表结构，严重的话引起程序崩溃，在此只需改为`local robot = LSystem.CreateRobot(v.robId, v.sex, v.fightValue)`即可解决此隐患。另外，在`setfenv(1, robot.robotmgr)`也有类似的注意事项。
 
+### 关于xpcall
+#### 自定义捕获异常后的行为
+#### xpcall处理函数的返回值
+>首个参数必然是xpcall的执行结果，成功则为true，从第二个参数开始就是函数的返回值了
+```lua
+local rankAwardfuncs = {}
+-- other code...
+local function OnGiveReward(entity, idx)
+    for _, func in ipairs(rankAwardfuncs) do
+        local ok, rewards = xpcall(function () return func(entity, idx) end, _lua_error_handle)
+        if ok then
+            BroadcastAward(reward)
+        end
+    end  
+end
+```
+
 ##### 常见错误
  - 由于lua是弱类型语言，因此，许多时候，一个变量可能是float、int、string或者table等难以区分出来，因此，在某些特定场合里面，最好使用`type()`来捕获此变量的类型，然后使用类似`tonumber()`的函数，将某变量转换成特定的数据类型吧，另外，在number类型的数值比较之中，需要留神待比较的变量是否可能为float类型，通常在这些场合里，使用`math.ceil()`来取整后再作比较
  - table类型变量都是穿引用过去的哦，在后端开发里面，一个大忌就是修改了存放到lua里面的配置表数据，毕竟不止一个玩家在读取这些配置内容
