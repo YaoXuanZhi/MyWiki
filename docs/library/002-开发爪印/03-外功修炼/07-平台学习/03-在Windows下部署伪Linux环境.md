@@ -110,16 +110,17 @@ start %WD%sh --login -i %*
 exit
 
 :file
-echo file
-set _DIR=%_T%
-set _DIR=%~dp1
+call :getdir %_T%
 %WD%mintty -i %~dp0msys2.ico %~dp0usr/bin/bash --login -c "cd '%_DIR%';vim '%_T%'"
 exit
 
 :folder
-echo folder
 %WD%mintty -i %~dp0msys2.ico %~dp0usr/bin/bash --login -c "cd '%_T%';exec bash"
 exit
+
+:getdir
+::获得此文件的所在目录路径
+set _DIR=%~dp1
 ```
 
 >将**RegMsys2.bat**和**RunMsys2.bat**这两个.bat文件拷贝到`.../msys64/`路径下，选中**RegMsys2.bat**然后执行右键菜单里的**以管理员身份运行**命令即可，在右键菜单里就可以看到有一个**以Msys2打开**的菜单项
