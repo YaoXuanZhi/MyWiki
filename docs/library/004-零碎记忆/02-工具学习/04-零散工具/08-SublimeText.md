@@ -20,6 +20,11 @@
 >按下`Ctrl+H`，接着按下`Alt+R`之后，会启用正则表达式匹配模式，此时我们可以接着类似Perl的正则表达式来查找、替换文本加了，需要注意的是，被匹配的文本必须要用()来包裹起来，此时匹配成功的多处字符串可以通过`$n`形式来检索，n必须>=1，如下所示：
  - Find as:`(^first)`、`(^min|^max|^battle)`
  - Replace with:`_M.$1`
+ 
+ 比如，将L"xxx"替换成_T("xxx")
+ 
+ - Find as:`L"([\S\s]*?)"`
+ - Replace with:`_T("$1")`
 
 #### 插件推荐
  - [Package Control:一款Sublime Text的插件管理器](http://packagecontrol.io)
