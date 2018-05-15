@@ -21,10 +21,15 @@
  - Find as:`(^first)`、`(^min|^max|^battle)`
  - Replace with:`_M.$1`
  
- 比如，将L"xxx"替换成_T("xxx")
+ 比如，将`L"xxx"`替换成`_T("xxx")`
  
  - Find as:`L"([\S\s]*?)"`
  - Replace with:`_T("$1")`
+ 
+ 比如，将某个文件里的所有`    refreshTime = 7200,` 替换成 `    refreshTime = 10,`
+ 
+ - Find as:`(refreshTime =) [0-9]*(,)`
+ - Replace with:`$1 10$2`
 
 #### 插件推荐
  - [Package Control:一款Sublime Text的插件管理器](http://packagecontrol.io)
