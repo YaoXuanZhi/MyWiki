@@ -104,6 +104,7 @@
     - [ProtoEditor](?file=003-碎碎念/02-胡思乱想/08-ProtoEditor "ProtoEditor")
     - [amWikiForVim](?file=003-碎碎念/02-胡思乱想/09-amWikiForVim "amWikiForVim")
     - [WorkFlowMgr](?file=003-碎碎念/02-胡思乱想/10-WorkFlowMgr "WorkFlowMgr")
+    - [Tool Shell](?file=003-碎碎念/02-胡思乱想/11-Tool Shell "Tool Shell")
 - [版本发布的二三事](?file=003-碎碎念/03-版本发布的二三事 "版本发布的二三事")
 - [版本管理的二三事](?file=003-碎碎念/04-版本管理的二三事 "版本管理的二三事")
 
@@ -131,8 +132,6 @@
             - [常用快捷键整理](?file=004-零碎记忆/02-工具学习/03-开发套件/02-VSCode/01-常用快捷键整理 "常用快捷键整理")
             - [基于VSCode的开发环境搭建](?file=004-零碎记忆/02-工具学习/03-开发套件/02-VSCode/03-基于VSCode的开发环境搭建 "基于VSCode的开发环境搭建")
     - **零散工具**
-        - **3ds MAX**
-        - **CAD**
         - **Git**
             - [使用技巧集合](?file=004-零碎记忆/02-工具学习/04-零散工具/03-Git/01-使用技巧集合 "使用技巧集合")
             - [Git工作流](?file=004-零碎记忆/02-工具学习/04-零散工具/03-Git/02-Git工作流 "Git工作流")
