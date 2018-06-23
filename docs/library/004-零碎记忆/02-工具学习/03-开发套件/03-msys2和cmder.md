@@ -140,6 +140,5 @@ SetLocal EnableDelayedExpansion
 
 #### 差异之处
  - Msys2的定位和Cygwin是一样的，都是将自己视为linux环境，终端程序采用了mintty(这货是putty的阉割版)，而cmder里的终端程序是ConEmu，因此还是将自己看作成windows环境，只不过兼容了部分linux的命令而已
-   >在msys2中，通过pacman安装cmake是无法生成visual studio工程，而cmder外接cmake后则可以
  - Msys2内置了Pacman作为包管理，而cmder是没有包管理的，通常是通过修改`set path=%path%;xxx;`来添加第三方软件的支持
  - Cmder里的ConEmu提供了更加丰富的窗口管理功能，以及各种主题设置等等，Msys2里的Mintty只有终端功能><
