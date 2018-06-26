@@ -123,6 +123,19 @@ SetLocal EnableDelayedExpansion
 >考虑到markdown的在线渲染会出现字符转义的情况，这里提供附件下载----[msys2_menu.zip](assets/004/02/03/msys2_menu.zip)。注意，RunMsys2.bat就是从msys2-i686-xxx.exe的mingw32.bat中提取出来的，在此基础上新加了两个功能，如果外部传入的参数是文件夹，则bash会直接定位到此文件夹下，如果是文件，则直接用vim来打开，如图所示：
 >![](assets/004/02/03/03-1529738893000.png)
 
+### FAQ
+>执行`pacman -S gcc`后去吃个午饭，回来发现msys2的Mintty无故退出，再次执行相同指令时报错，日志如下：
+
+  ```log
+  安装gcc时遇到了这个问题
+  错误：无法初始化事务处理 (无法锁定数据库)
+  错误：无法锁定数据库：File exists
+    如果你确认软件包管理器没有在运行，
+    你可以删除 /var/lib/pacman/db.lck。
+  ```
+
+>查到的资料：[《pacman locked but /var/lib/pacman/db.lck doesn't exist.》](https://bbs.archlinux.org/viewtopic.php?pid=1045162)，这个链接讨论的报错和笔者遇到的报错有点相似(可惜他是遇到not exist的情况=.=)，不过这个网友遇到的问题是由于磁盘空间不足导致的，本人此时的磁盘空间充足，因此不具备参考性。后来依照提示，执行`rm -f /var/lib/pacman/db.lck`删除了db.lck，再次执行安装指令就可以正常安装了
+
 ---
 
 ### [Cmder官网](http://cmder.net/)
@@ -142,3 +155,6 @@ SetLocal EnableDelayedExpansion
  - Msys2的定位和Cygwin是一样的，都是将自己视为linux环境，终端程序采用了mintty(这货是putty的阉割版)，而cmder里的终端程序是ConEmu，因此还是将自己看作成windows环境，只不过兼容了部分linux的命令而已
  - Msys2内置了Pacman作为包管理，而cmder是没有包管理的，通常是通过修改`set path=%path%;xxx;`来添加第三方软件的支持
  - Cmder里的ConEmu提供了更加丰富的窗口管理功能，以及各种主题设置等等，Msys2里的Mintty只有终端功能><
+ - 在Msys2中编译出来的程序必须依赖MSYS-2.0.DLL、MSYS-GCC_S-1.DLL，而Cmder是不需要的
+ - Cmder(Conemu)在窗口最大化切换时，vim、less等工具的文本并不会重新布局，而Msys2(Mintty)是可以的
+
