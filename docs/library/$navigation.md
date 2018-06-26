@@ -134,6 +134,7 @@
         - **Svn**
             - [使用技巧集合](?file=004-零碎记忆/02-工具学习/04-零散工具/07-Svn/01-使用技巧集合 "使用技巧集合")
         - [SublimeText](?file=004-零碎记忆/02-工具学习/04-零散工具/08-SublimeText "SublimeText")
+        - [CMake](?file=004-零碎记忆/02-工具学习/04-零散工具/09-CMake "CMake")
 - **把玩项目**
     - [Paints Chainer](?file=004-零碎记忆/03-把玩项目/01-Paints Chainer "Paints Chainer")
     - [x64dbg](?file=004-零碎记忆/03-把玩项目/02-x64dbg "x64dbg")
