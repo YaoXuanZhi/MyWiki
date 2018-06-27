@@ -142,8 +142,8 @@ SetLocal EnableDelayedExpansion
 关于它的详情，看官网最好啦，本人也整理过一些资料----[《ConEmu项目资料》](?file=004-零碎记忆/03-把玩项目/03-ConEmu/01-项目资料 "项目资料")
 
 #### 添加第三方软件
-通常是修改init.bat来实现的，这里以cmake做个例子简要说明下：
->在`.../vendor/init.bat`文件里插入`call %~dp0extracmd.bat`，然后在同级目录下新建一个extracmd.bat文件，在里面填入`set path=%path%;E:/tools/cmake/bin;`就可以了
+通常是修改user-profile来实现的，这里以cmake做个例子简要说明下：
+>在`cmder\config\user-profile.cmd`文件最底下插入`set path=%path%;E:/tools/cmake/bin;`就可以了
 
 ---
 
