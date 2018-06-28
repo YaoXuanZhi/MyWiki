@@ -120,6 +120,74 @@ include_directories(./misc)
 add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders} ${mischeaders})
 ```
 
+##### ImageViewer0.2
+>这里调用了第三方类库nanosvg来支持svg文件的读取，主要演示了如何通过Git来管理第三方类库，以及如何在cmake里面整合第三方类库源码的过程，简略描述如下：
+  >借助option来配置svg的功能开启，如果为ON，则这里以SUPPORT_SVG_TYPE作为开启的条件，通过`add_definitions(-DSUPPORT_SVG_TYPE)`来添加预处理宏，源码里以`SUPPORT_SVG_TYPE`作为预编译宏，整理所有与svg相关的代码逻辑，另外，也要在CMakeLists.txt中，以`if(SUPPORT_SVG_TYPE)`判断是否执行追加相关头文件搜索路径，添加相关文件名到工程等命令
+  >借助configure_file来配置一个外部的头文件，用来传入程序的版本号，当然，也可以配合option来做其他事情
+  >附件：[ImageConverter0.5.zip](assets/004/02/04/ImageConverter0.5.zip)
+
+```makefile
+# 指定cmake的最小版本
+cmake_minimum_required(VERSION 2.8)
+
+# 指定工程名称，ImageConverter.sln
+project(ImageConverter)
+
+# 配置版本号
+set (APP_VERSION_MAJOR 1)
+set (APP_VERSION_MINOR 0)
+
+# 配置是否开启SVG的支持
+option (SUPPORT_SVG_TYPE "support .svg file" ON)  
+
+# 加入一个配置头文件，用于处理 CMake 对源码的设置
+configure_file (
+  "${PROJECT_SOURCE_DIR}/config.h.in"
+  "${PROJECT_SOURCE_DIR}/config.h"
+ )
+
+aux_source_directory(. srcs)
+source_group("src" FILES ${srcs})
+
+FILE(GLOB_RECURSE coresrcs 
+    ./core/*.cpp
+)
+source_group("src\\core" FILES ${coresrcs})
+
+FILE(GLOB_RECURSE miscsrcs 
+    ./misc/*.cpp
+)
+source_group("src\\misc" FILES ${miscsrcs})
+
+FILE(GLOB_RECURSE coreheaders 
+    ./core/*.h
+)
+source_group("include\\core" FILES ${coreheaders}) 
+
+FILE(GLOB_RECURSE mischeaders 
+    ./misc/*.h
+)
+source_group("include\\misc" FILES ${mischeaders}) 
+
+if(SUPPORT_SVG_TYPE)
+FILE(GLOB_RECURSE nanosvgheaders 
+    ./modules/nanosvg/src/*.h
+    ./modules/nanosvg/example/*.h
+)
+source_group("modules\\include\\nanosvg" FILES ${nanosvgheaders}) 
+include_directories(./modules/nanosvg/src)
+include_directories(./modules/nanosvg/example)
+add_definitions(-DSUPPORT_SVG_TYPE)
+endif(SUPPORT_SVG_TYPE)
+
+# 添加头文件搜索路径
+include_directories(./core)
+include_directories(./misc)
+
+# 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders} ${mischeaders} ${nanosvgheaders})
+```
+
 ---
 
 ### FAQ
