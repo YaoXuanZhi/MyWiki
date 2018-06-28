@@ -51,20 +51,73 @@
 
 >技术选型如下:
 ```txt
-                +-------->ImageLoadModule(stb_image.h、libgif、naosvg、skia等)，加载磁盘上的图片资源到内存中
+                +-------->ImageLoadModule(gdi+、stb_image.h、libgif、naosvg、skia等)，加载磁盘上的图片资源到内存中
                 |
                 |
 ImageConverter--|--------->AutoCompleteModule(linenoise、readline等)，为CLI程序提供命令自动补全的功能
                 |
                 |
-                +-------->ImageSaveModule(stb_image_write.h等)，将内存中的图片数据保存到磁盘
+                +-------->ImageSaveModule(gdi+、stb_image_write.h等)，将内存中的图片数据保存到磁盘
 ```
 
 ##### ImageViewer0.1
->这只是一个初始版，仅仅搭好一个项目框架的雏形，附件：[ImageConverter0.1.zip]()
+>这只是一个初始版，仅仅是搜索项目下的源文件，将其添加到VS上，可以编译执行了，附件：[ImageConverter0.1.zip](assets/004/02/04/ImageConverter0.1.zip)
 
-```c++
+```makefile
+# 指定cmake的最小版本
+cmake_minimum_required(VERSION 2.8)
+# 指定工程名称，ImageConverter.sln
+project(ImageConverter)
+# 搜索当前目录下的源码文件，用srcs存储起来
+aux_source_directory(. srcs)
+# 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+add_executable(ImageConverterDemo ${srcs})
+```
 
+##### ImageViewer0.2
+>接下来搭建这个项目的基础部分，定好各种组件的接口，这里先以gdi+作为图片的编解码器，附件：[ImageConverter0.2.zip](assets/004/02/04/ImageConverter0.2.zip)
+
+```makefile
+# 指定cmake的最小版本
+cmake_minimum_required(VERSION 2.8)
+
+# 指定工程名称，ImageConverter.sln
+project(ImageConverter)
+
+# 搜索目录下的源码文件
+aux_source_directory(. srcs)
+
+FILE(GLOB_RECURSE coresrcs 
+    ./core/*.cpp
+)
+
+FILE(GLOB_RECURSE miscsrcs 
+    ./misc/*.cpp
+)
+
+# 搜索目录下的头文件
+FILE(GLOB_RECURSE coreheaders 
+    ./core/*.h
+)
+
+FILE(GLOB_RECURSE mischeaders 
+    ./misc/*.h
+)
+
+# 添加到项目筛选器上
+source_group("src" FILES ${srcs})
+source_group("src\\core" FILES ${coresrcs})
+source_group("src\\misc" FILES ${miscsrcs})
+
+source_group("include\\misc" FILES ${mischeaders}) 
+source_group("include\\core" FILES ${coreheaders}) 
+
+# 添加头文件搜索路径
+include_directories(./core)
+include_directories(./misc)
+
+# 配置一个可执行文件项目，ImageConverterDemo.vcxproj
+add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders} ${mischeaders})
 ```
 
 ---
