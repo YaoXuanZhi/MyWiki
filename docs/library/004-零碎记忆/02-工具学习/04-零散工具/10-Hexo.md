@@ -4,18 +4,17 @@
 ##### Hexo入门指导
 >推荐直接到[Hexo官方](https://hexo.io/zh-cn/)上看，这里就不复述了
  - 快速在浏览器预览博客 `hexo clean & hexo g & hexo s`
- - 快速将博客发布到Github上 `hexo clean & hexo g & hexo s`
+ - 快速将博客发布到Github上 `hexo clean & hexo g & hexo d`
 
 ---
 
 #### 让Hexo支持LaTex公式渲染
->目前坊间流传的方案有三个：一是手动添加mathJax的各种链接；二是采用[hexo-math](https://github.com/hexojs/hexo-math)，此作者将手动方案通过Npm插件打包在一起了；三是采用`hexo-renderer-mathjax`，这里只记录第三种，第一方案手动改动的东西太多，第二种方案动手尝试过，没有成功，不往下深究了直接弃用
+>目前坊间流传的方案有三个：一是手动添加mathJax的各种链接；二是采用[hexo-math](https://github.com/hexojs/hexo-math)，此作者将手动方案通过Npm插件打包在一起了；三是采用`hexo-renderer-mathjax`
 
- 1. **卸载冲突Npm插件，安装所需插件**
+ 1. **采用kramed代替marked，修复一些已知Bug**
    ```sh
    npm uninstall hexo-renderer-marked --save
    npm install hexo-renderer-kramed --save
-   npm install hexo-renderer-mathjax --save
    ```
 
  2. **解决语义冲突** 修改`node_modules\kramed\lib\rules\inline.js`中的第11行：
@@ -29,15 +28,49 @@
    em: /^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
    ```
 
- 3. **更换MathJax的CDN** 在`/node_modules/hexo-renderer-mathjax/mathjax.html`中把`<script>`更改为：`<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>`
+##### 采用hexo-math
+ 1. **安装hexo-math**
+   ```sh
+   npm install hexo-math --save
+   ```
 
- 4. **让Hexo开启MathJax的支持** 在`_config.yml`中插入以下语句：
+ 2. **让Hexo开启MathJax的支持** 在`_config.yml`中插入以下语句：
+   ```yml
+   math:
+     engine: 'mathjax' # or 'katex'
+     # engine: 'katex'
+     mathjax:
+       src: "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+       config:
+          tex2jax: 
+           inlineMath: [ ['$','$'], ["\\(","\\)"] ]
+           skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+           processEscapes: true
+     katex:
+       css: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"
+       js: "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"
+       config:
+         throwOnError: false
+         errorColor: "#cc0000"
+   ```
+
+##### 采用hexo-renderer-mathjax
+>Warning:目前已知问题是，无法让heox-site支持渲染latex公式，个人猜测此插件与ejs集成度高，对swing没有做兼容
+
+ 1. **安装hexo-renderer-mathjax**
+   ```sh
+   npm install hexo-renderer-mathjax --save
+   ```
+
+ 2. **更换MathJax的CDN** 在`/node_modules/hexo-renderer-mathjax/mathjax.html`中把`<script>`更改为：`<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>`
+
+ 3. **让Hexo开启MathJax的支持** 在`_config.yml`中插入以下语句：
    ```yml
    mathjax:
        enable: true
    ```
 
- 5. **需要在指定的文章中开启MathJax的支持** 在文章的`front-matter`中添加`mathjax: true`，如下所示：
+ 4. **需要在指定的文章中开启MathJax的支持** 在文章的`front-matter`中添加`mathjax: true`，如下所示：
    ```md
    title: Hello World
    mathjax: true
