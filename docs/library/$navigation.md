@@ -25,6 +25,8 @@
         - **DSL**
             - [DSL简介](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/01-DSL简介 "DSL简介")
             - [SQL](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/02-SQL "SQL")
+        - **NodeJs**
+            - [安装和升级](?file=002-开发爪印/03-外功修炼/01-编程语言学习/07-NodeJs/01-安装和升级 "安装和升级")
     - **SDK学习**
         - **Windows SDK**
             - [GUI](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/01-GUI "GUI")
@@ -135,6 +137,7 @@
             - [使用技巧集合](?file=004-零碎记忆/02-工具学习/04-零散工具/07-Svn/01-使用技巧集合 "使用技巧集合")
         - [SublimeText](?file=004-零碎记忆/02-工具学习/04-零散工具/08-SublimeText "SublimeText")
         - [CMake](?file=004-零碎记忆/02-工具学习/04-零散工具/09-CMake "CMake")
+        - [Hexo](?file=004-零碎记忆/02-工具学习/04-零散工具/10-Hexo "Hexo")
 - **把玩项目**
     - [Paints Chainer](?file=004-零碎记忆/03-把玩项目/01-Paints Chainer "Paints Chainer")
     - [x64dbg](?file=004-零碎记忆/03-把玩项目/02-x64dbg "x64dbg")
