@@ -51,13 +51,13 @@
 
 >技术选型如下:
 ```txt
-                +-------->ImageLoadModule(gdi+、stb_image.h、libgif、naosvg、skia等)，加载磁盘上的图片资源到内存中
+                +-------->ImageLoadModule(gdi+、stb_image.h、libgif、naosvg、skia、freeimage等)，加载磁盘上的图片资源到内存中
                 |
                 |
 ImageConverter--|--------->AutoCompleteModule(linenoise、readline等)，为CLI程序提供命令自动补全的功能
                 |
                 |
-                +-------->ImageSaveModule(gdi+、stb_image_write.h等)，将内存中的图片数据保存到磁盘
+                +-------->ImageSaveModule(gdi+、stb_image_write.h、freeimage等)，将内存中的图片数据保存到磁盘
 ```
 
 ##### ImageViewer0.1
@@ -195,10 +195,9 @@ add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders}
 >对于不熟悉的cmake command，有两种方法可以快速找到其使用说明，这里以`find_path`为例
 
  - 直接在终端上输入`cmake -h find_path`来查询即可，如下图所示:
-   >![](assets/004/02/04/09-1529931230000.png)
-
  - 直接问度娘或谷歌，输入`cmake find_path`来搜索即可，通常搜索引擎前三就是cmake官方的文档，后面的搜索结果是网友的一些博客了
-   >![](assets/004/02/04/09-1529931387000.png)
+ 
+![](assets/004/02/04/09-1530522434000.png)
 
 ##### SublimeText、VSCode等编辑器应该安装什么插件来快速编辑cmake呢
  - SublimeText----CMakeEditor
