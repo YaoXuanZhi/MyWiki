@@ -120,7 +120,7 @@ include_directories(./misc)
 add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders} ${mischeaders})
 ```
 
-##### ImageViewer0.2
+##### ImageViewer0.5
 >这里调用了第三方类库nanosvg来支持svg文件的读取，主要演示了如何通过Git来管理第三方类库，以及如何在cmake里面整合第三方类库源码的过程，简略描述如下：
   >借助option来配置svg的功能开启，如果为ON，则这里以SUPPORT_SVG_TYPE作为开启的条件，通过`add_definitions(-DSUPPORT_SVG_TYPE)`来添加预处理宏，源码里以`SUPPORT_SVG_TYPE`作为预编译宏，整理所有与svg相关的代码逻辑，另外，也要在CMakeLists.txt中，以`if(SUPPORT_SVG_TYPE)`判断是否执行追加相关头文件搜索路径，添加相关文件名到工程等命令
   >借助configure_file来配置一个外部的头文件，用来传入程序的版本号，当然，也可以配合option来做其他事情
@@ -186,6 +186,77 @@ include_directories(./misc)
 
 # 配置一个可执行文件项目，ImageConverterDemo.vcxproj
 add_executable(ImageConverterDemo ${srcs} ${coresrcs} ${miscsrcs} ${coreheaders} ${mischeaders} ${nanosvgheaders})
+```
+
+##### ImageViewer0.6
+>目前发现Gdiplus里面的图片编码、解码的功能还是太弱了，支持的图片类型太少，比如无法正常加载psd类型，因此打算采用FreeImage来加强这个功能。由于FreeImage是以一个动态库的开发包形式分发的，因此需要更多的指令来控制依赖FreeImage库的工程生成，其中包括项目生成之后的dll文件拷贝、根据.dll、.lib的文件是否存在来判断是否生成ForFreeImage的工程等等，用到的关键指令如下所示：
+ - Find_Package -> 用来查看cmake目录下的xxx.cmake文件，里面定义了这个模块的源码、开发包的搜索方式，注意，xxx.cmake里定义的参数可以传递到CMakeLists.txt里面哦
+ - set_target_properties -> 为指定项目配置特有属性，通常用来添加项目特有的宏定义，而add_definitions定义的宏会添加到所有生成的项目中，注意这个的区别哦
+ - target_link_libraries -> 让指定项目链接静态库/导入库，不是作用到所有项目哦
+ - add_custom_command -> 自定义生成命令，在此是为了让FreeImage项目生成后，自动拷贝FreeImage开发包下的.dll文件到.exe所在目录下，注意，这里面还用`set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) `来重定向输出目录了哦
+
+>附件：[ImageConverter0.6.7z](assets/004/02/04/ImageConverter0.6.7z)
+
+```makefile
+### 这里仅仅截取CMakeLists.txt的FreeImage配置相关代码段
+SET(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+FIND_PACKAGE(FREEIMAGEX32)
+IF(FREEIMAGEX32_FOUND)
+    include_directories(${FREEIMAGEX32_INCLUDE_DIR})
+    FILE(GLOB_RECURSE freeimageheaders 
+        ${FREEIMAGEX32_INCLUDE_DIR}/*.h
+    )
+    source_group("include\\freeimage" FILES ${freeimageheaders}) 
+    if (FREEIMAGEX32_STATICLIB)
+        add_executable(ImageConverterForFreeImage 
+            ${srcs} 
+            ${coresrcs} 
+            ${miscsrcs} 
+            ${coreheaders} 
+            ${mischeaders} 
+            ${freeimageheaders}
+            ${nanosvgheaders})
+
+        set_target_properties(ImageConverterForFreeImage PROPERTIES COMPILE_DEFINITIONS "SUPPORT_FREEIMAGE")
+        target_link_libraries(ImageConverterForFreeImage ${FREEIMAGEX32_STATICLIB})
+        add_custom_command(TARGET ImageConverterForFreeImage POST_BUILD        # Adds a post-build event to MyTest
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different  # which executes "cmake - E copy_if_different..."
+                "${FREEIMAGEX32_SHAREDLIB}"      # <--this is in-file
+                "${PROJECT_SOURCE_DIR}/bin/$<CONFIGURATION>"
+                )
+    endif(FREEIMAGEX32_STATICLIB)
+else(FREEIMAGEX32_FOUND)    
+    MESSAGE(status "没有找到FreeImage哦，不生成此工程啦") 
+ENDIF(FREEIMAGEX32_FOUND)
+```
+
+```makefile
+### FindFREEIMAGEX32.cmake，此文件是配合Find_Package指令来使用的，目的是搜索指定路径
+### 看FreeImage开发包是否完整，一般而言，FindXXX.cmake是会主动生成一些静态库、动态库项目的
+### 当然，这是由源码的前提了，这里是借助了第三方提供的工具包，因此显得有点绕
+# 设置查找路径
+set (search_header  ${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)
+set (search_staticlib ${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)
+set (search_sharedlib ${PROJECT_SOURCE_DIR}/modules/FreeImage/x32)
+
+# 搜索头文件
+FIND_PATH(FREEIMAGEX32_INCLUDE_DIR FreeImage.h ${search_header})
+
+# 搜索链接库
+FILE(GLOB_RECURSE FREEIMAGEX32_STATICLIB ${search_staticlib}/FreeImage.lib)
+
+# 搜索dll
+FILE(GLOB_RECURSE FREEIMAGEX32_SHAREDLIB ${search_sharedlib}/FreeImage.dll)
+
+IF (FREEIMAGEX32_INCLUDE_DIR AND FREEIMAGEX32_STATICLIB AND FREEIMAGEX32_SHAREDLIB)
+    SET(FREEIMAGEX32_FOUND TRUE)
+ENDIF (FREEIMAGEX32_INCLUDE_DIR AND FREEIMAGEX32_STATICLIB AND FREEIMAGEX32_SHAREDLIB)
+
+# 删除临时变量
+unset(search_header)
+unset(search_staticlib)
+unset(search_sharedlib)
 ```
 
 ---
