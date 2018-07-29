@@ -278,7 +278,9 @@ if (MSVC)
 endif(MSVC)
 ```
 
->Refrence: [cmake 设置vs工程的MT、MTd](https://blog.csdn.net/frank_liuxing/article/details/74010939)
+Refrence: 
+ - [cmake 设置vs工程的MT、MTd](https://blog.csdn.net/frank_liuxing/article/details/74010939)
+ - [cmake:msvc编译第三方库时使用/MT静态库连接c/c++ runtime library](https://blog.csdn.net/10km/article/details/73750410)
 
 ---
 
