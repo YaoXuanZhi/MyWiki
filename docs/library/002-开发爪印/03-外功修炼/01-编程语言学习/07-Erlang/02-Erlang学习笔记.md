@@ -1,6 +1,6 @@
-## 列表惯用法
+### 列表惯用法
 
-### 记录列表转换
+#### 记录列表转换
 ```erl
 -record(st_boss_icon, {
          monsterId = 0,
@@ -30,7 +30,7 @@ start2() ->
     io:fwrite("start2 ==> ~p ~n ~p ~n", [RecordList, TupleList]).
 ```
 
-### 双层列表转换
+#### 双层列表转换
 ```erl
 -record(st_boss_icon, {
          monsterId = 0,
@@ -56,7 +56,7 @@ start4() ->
     io:fwrite("start4 ==> ~p ~n ~p ~n", [DoubleList, RecordList]).
 ```
 
-### 元组列表转换
+#### 元组列表转换
 ```erl
 -record(st_boss_icon, {
          monsterId = 0,
@@ -214,6 +214,6 @@ start() ->
     io:fwrite("run end~n").
 ```
 
->附件：[test.erl](assets/002/03/01/07/test.erl)
+附件：[test.erl](assets/002/03/01/07/test.erl)
 
 ---
