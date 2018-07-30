@@ -25,8 +25,9 @@
         - **DSL**
             - [DSL简介](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/01-DSL简介 "DSL简介")
             - [SQL](?file=002-开发爪印/03-外功修炼/01-编程语言学习/06-DSL/02-SQL "SQL")
-        - **NodeJs**
-            - [安装和升级](?file=002-开发爪印/03-外功修炼/01-编程语言学习/07-NodeJs/01-安装和升级 "安装和升级")
+        - **Erlang**
+            - [Erlang开发环境搭建](?file=002-开发爪印/03-外功修炼/01-编程语言学习/07-Erlang/01-Erlang开发环境搭建 "Erlang开发环境搭建")
+            - [Erlang学习笔记](?file=002-开发爪印/03-外功修炼/01-编程语言学习/07-Erlang/02-Erlang学习笔记 "Erlang学习笔记")
     - **SDK学习**
         - **Windows SDK**
             - [GUI](?file=002-开发爪印/03-外功修炼/02-SDK学习/01-Windows SDK/01-GUI "GUI")

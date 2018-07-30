@@ -259,6 +259,29 @@ unset(search_staticlib)
 unset(search_sharedlib)
 ```
 
+##### 配置编译参数
+在VS中，需要配置编译参数，如将Debug下的`/MDd=>/MTd`，Release下的`/MD=>/MT`可以如下配置:
+
+```makefile
+if (MSVC)
+    set(CompilerFlags
+        CMAKE_CXX_FLAGS
+        CMAKE_CXX_FLAGS_DEBUG
+        CMAKE_CXX_FLAGS_RELEASE
+        CMAKE_C_FLAGS
+        CMAKE_C_FLAGS_DEBUG
+        CMAKE_C_FLAGS_RELEASE
+        )
+    foreach(CompilerFlag ${CompilerFlags})
+        string(REPLACE "/MD" "/MT" ${CompilerFlag} "${${CompilerFlag}}")
+    endforeach()
+endif(MSVC)
+```
+
+Refrence: 
+ - [cmake 设置vs工程的MT、MTd](https://blog.csdn.net/frank_liuxing/article/details/74010939)
+ - [cmake:msvc编译第三方库时使用/MT静态库连接c/c++ runtime library](https://blog.csdn.net/10km/article/details/73750410)
+
 ---
 
 ### FAQ
