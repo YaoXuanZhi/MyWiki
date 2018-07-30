@@ -168,6 +168,31 @@ start12(DoubleList) ->
     NewList = lists:map(F, DoubleList),
     io:fwrite("start12 ==> ~p ~n ~p ~n", [DoubleList, NewList]).
 
+start13(BossId, KilledTimes) ->
+    RecordList = [#st_boss_icon{monsterId = X} || X <- [1001, 1002, 1003, 1004, 1005]],
+    L = case lists:keytake(BossId, #st_boss_icon.monsterId, RecordList) of
+        false -> [#st_boss_icon{monsterId = BossId, killedTimes = KilledTimes}|RecordList];
+        {_, H, T} -> 
+            [H#st_boss_icon{killedTimes = KilledTimes}|T]
+    end,
+    io:fwrite("start13 ==> ~p ~n ", [L]).
+
+
+start14() ->
+    BossIds = [1001, 1002, 1003, 1004, 1005],
+    RecordList = [
+        #st_boss_icon{monsterId = 1001, killedTimes = 2, iconState = 2}, 
+        #st_boss_icon{monsterId = 1005, killedTimes = 4, iconState = 1}
+    ],
+    L = lists:map(fun(Id) -> 
+        case lists:keyfind(Id, #st_boss_icon.monsterId, RecordList) of
+            false -> [Id, 0 ,0];
+            H -> 
+                [Id, H#st_boss_icon.killedTimes, H#st_boss_icon.iconState]
+        end
+        end, BossIds),
+    io:fwrite("start14 ==> ~p~n", [L]).
+
 start() ->
     io:fwrite("run begin~n"),
     start1(),
@@ -183,5 +208,8 @@ start() ->
     start10(DoubleList),
     start11(DoubleList),
     start12(DoubleList),
+    start13(1003, 5),
+    start13(1010, 5),
+    start14(),
     io:fwrite("~p ~p ~n", [#st_boss_icon{}, #st_boss_icon.monsterId]),
     io:fwrite("run end~n").
