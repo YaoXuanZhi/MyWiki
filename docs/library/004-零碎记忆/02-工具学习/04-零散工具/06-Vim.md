@@ -63,10 +63,11 @@ http://www.huangdc.com/421
      - 把当前窗口增加num列：`:vertical res(ize)+num` 
      - 把当前窗口减少num列：`:vertical res(ize)-num` 
    - 文件浏览
-     - 在侧边打开目录树：`:NERDTREE`
-     - 打开目录浏览器：`:Ex`
-     - 水平分割当前窗口，并打开一个窗口开启目录浏览器发：`:Sex`
-
+     - 在侧边栏中打开目录树：`:NERDTREE`
+     - 显示当前文件所在侧边栏：`:NERDTreeFind`
+     - 打开当前文件所在目录树(窗口不分割)：`:Ex(plore)`
+     - 打开当前文件所在目录树(水平分割窗口)：`::Se(xplore)`
+     - 打开当前文件所在目录树(垂直分割窗口)：`::Ve(xplore)`
  
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html)
