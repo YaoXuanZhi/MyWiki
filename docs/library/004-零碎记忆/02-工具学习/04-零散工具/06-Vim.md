@@ -66,8 +66,8 @@ http://www.huangdc.com/421
      - 在侧边栏中打开目录树：`:NERDTREE`
      - 显示当前文件所在侧边栏：`:NERDTreeFind`
      - 打开当前文件所在目录树(窗口不分割)：`:Ex(plore)`
-     - 打开当前文件所在目录树(水平分割窗口)：`::Se(xplore)`
-     - 打开当前文件所在目录树(垂直分割窗口)：`::Ve(xplore)`
+     - 打开当前文件所在目录树(水平分割窗口)：`:Se(xplore)`
+     - 打开当前文件所在目录树(垂直分割窗口)：`:Ve(xplore)`
  
 #### 关于Vim的插件开发
  - [Vimscript 文档](https://www.w3cschool.cn/vim/gsenvozt.html)
