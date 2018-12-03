@@ -37,6 +37,7 @@ http://www.huangdc.com/421
    - 前一个：`:tabp`
    - 后一个：`:tabn`
  - 设置Vim的快捷键，直接在_VIMRC上插入这些语句即可：`map <F10> <Esc>:!explorer %:p:h<CR>`
+ - 在资源管理器上显示：`map <F10> <Esc>:!explorer /select, %:p<CR>`
  - 代码折叠
    - 打开关闭折叠：`zi`
    - 查看此行：`zv`
