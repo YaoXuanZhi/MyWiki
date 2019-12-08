@@ -140,7 +140,9 @@ mkdir ~/.vim/colors
 wget -O ~/.vim/colors/monokai.vim https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
 ```
 
-#### 编译Ycm的支持(Linux)
+### 编译Ycm的支持
+
+##### Linux
 ```sh
 # 建议直接安装CentOS 7.x以上，然后安装gcc+clang+llvm，这样gcc和clang就不需要升级了
 
@@ -152,4 +154,29 @@ yum install python-devel python3-devel
 
 # 将ycm的默认配置Copy到~/.vim/目录下
 cp ~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py ~/.vim/
+```
+
+##### Windows
+```bat
+@echo off
+REM  配置ycm的编译环境
+set llvm_root="D:/ProgramFiles/LLVM"
+set libclang_path="D:/ProgramFiles/LLVM/lib/libclang.lib"
+
+REM  使用py2
+set PYTHON_LIBRARY="D:/ProgramFiles/Python27/libs/python27.lib"
+set PYTHON_INCLUDE_DIR="D:/ProgramFiles/Python27/include"
+
+REM  使用py3
+REM  set USE_PYTHON2=OFF
+REM  set PYTHON_LIBRARY="C:/Python35/libs/Python35.lib"
+REM  set PYTHON_INCLUDE_DIR="C:/Python35/include"
+
+REM  配置ycm项目导出路径
+set ycm_path="D:/GreenFolder/GvimWithYcm/vimfiles/bundle/YouCompleteMe/third_party/ycmd/cpp"
+
+mkdir build & cd build
+cmake -G "Visual Studio 15 2017 Win64" -DEXTERNAL_LIBCLANG_PATH=%libclang_path% -DPATH_TO_LLVM_ROOT=%llvm_root%; . %ycm_path%
+cd ..
+pause
 ```
